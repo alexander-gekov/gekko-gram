@@ -4,7 +4,7 @@
     This is an app for sharing photos.
 
 
-    Take Care,<br>
+    Take Care,
     Aleksandar
     #STAYHOME
 @endcomponent
