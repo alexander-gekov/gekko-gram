@@ -1,26 +1,30 @@
 <template>
     <div>
         <div>
-            <button class="btn btn-primary" @click="toggleLike"
+            <button class="btn peach-gradient" @click="toggleLike"
                     v-text="buttonText"></button>
         </div>
-        <div class="bg-white">
+        <div class="bg-white px-2">
             <span>Liked by</span>
-            <span class="font-weight-bold" v-text="likedCount"></span>
+            <span class="font-weight-bold"><a href="#" @click.prevent="reload" data-toggle="modal" data-target="#likedByModal" class="text-dark">{{likedCount}}</a></span>
+            <liked-modal ref="likedModal" id="likedByModal" :postid="this.post"></liked-modal>
         </div>
     </div>
 </template>
 
 <script>
+    import LikedModal from "./LikedModal";
+
     export default {
         mounted() {
             axios.get('/p/' + this.post + '/count')
                 .then(response => {
-                    this.likedCount = response.data[0].count
+                    this.likedCount = response.data[0].count;
+                    //console.log(response.data[0]);
                 });
             axios.get('/p/' + this.post + '/reacted')
                 .then(response => {
-                    if(response.data == 1){
+                    if(response.data){
                         this.liked = true;
                     }
                     else{
@@ -39,7 +43,6 @@
             return {
                 liked: false,
                 likedCount: '0',
-                likedBy: [],
             }
         },
 
@@ -65,6 +68,9 @@
                         this.liked = false;
                         this.likedCount = response.data[0].count;
                     })
+            },
+            reload: function(){
+                this.$refs.likedModal.reload();
             }
         }
     }

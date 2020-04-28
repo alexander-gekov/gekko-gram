@@ -109,4 +109,22 @@ class PostsController extends Controller
             return false;
         }
     }
+
+    public function likedBy(Post $post){
+        $reactant = $post->getLoveReactant();
+        $users = User::all();
+        $likedBy = [];
+        $profiles = [];
+        foreach($users as $user){
+            $reacter = $user->getLoveReacter();
+            $isReacted = $reacter->hasReactedTo($reactant);
+            if ($isReacted){
+                array_push($likedBy,$user);
+                array_push($profiles,$user->profile);
+            }
+        }
+        return [
+            'users' => $likedBy,
+        ];
+    }
 }
