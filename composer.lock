@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fef769e9a4469c83ff43575a0fa40a09",
+    "content-hash": "dc28e29ddc814f96c5bc093c7ef79842",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5935,7 +5935,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2.5",
+        "php": "^7.2.0",
+        "ext-bcmath": "*",
         "ext-gd": "*"
     },
     "platform-dev": []
