@@ -30,8 +30,8 @@ class NewUserWelcomeMail extends Mailable
     {
         //return $this->markdown('emails.welcome-email');
         return $this->markdown('emails.welcome-email')
-            ->from(env('MAIL_USERNAME'), 'GekkoGram App')
+            ->from('alexander.gekov00@gmail.com', 'GekkoGram App')
             ->subject('Hello & Welcome!')
-            ->replyTo(env('MAIL_USERNAME'), 'Aleksandar Gekov');
+            ->replyTo('alexander.gekov00@gmail.com', 'Aleksandar Gekov');
     }
 }
