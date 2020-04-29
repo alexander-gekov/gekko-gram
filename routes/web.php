@@ -30,5 +30,4 @@ Route::post('/p/{post}/like','PostsController@like');
 Route::post('/p/{post}/unlike','PostsController@unlike');
 Route::get('/p/{post}/count','PostsController@likeCount');
 Route::get('/p/{post}/reacted','PostsController@hasReacted');
-Route::get('/p/{post}/liked','PostsController@likedBy');
 Route::get('/p/{post}','PostsController@show');

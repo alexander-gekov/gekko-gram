@@ -2,9 +2,9 @@
 
 namespace App;
 
-use App\Mail\NewUserWelcomeMail;
 use Cog\Contracts\Love\Reacterable\Models\Reacterable as ReacterableContract;
 use Cog\Laravel\Love\Reacterable\Models\Traits\Reacterable;
+use App\Mail\NewUserWelcomeMail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Mail;
@@ -41,7 +41,7 @@ class User extends Authenticatable implements ReacterableContract
             $user->profile()->create([
                 'title' => $user->username,
             ]);
-            Mail::to($user->email)->send(new NewUserWelcomeMail());
+//            Mail::to($user->email)->send(new NewUserWelcomeMail());
         });
 
     }
