@@ -1,11 +1,12 @@
 # Getting started
 
-##Showcase
+## Showcase
 
 ![](follow.gif)
 ![](like.gif)
 ![](create.gif)
 
+You can find all images at: https://imgur.com/a/mHgP5IB
 ## Installation
 
 Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/5.4/installation#installation)
