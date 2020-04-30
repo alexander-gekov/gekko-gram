@@ -1976,7 +1976,8 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get('/p/' + this.post + '/count').then(function (response) {
-      _this.likedCount = response.data[0].count; //console.log(response.data[0]);
+      _this.likedCount = response.data[0].count;
+      console.log(response.data[0]);
     });
     axios.get('/p/' + this.post + '/reacted').then(function (response) {
       if (response.data) {
@@ -37789,7 +37790,12 @@ var render = function() {
       _c("button", {
         staticClass: "btn peach-gradient",
         domProps: { textContent: _vm._s(_vm.buttonText) },
-        on: { click: _vm.toggleLike }
+        on: {
+          click: function($event) {
+            $event.preventDefault()
+            return _vm.toggleLike($event)
+          }
+        }
       })
     ]),
     _vm._v(" "),
@@ -37809,12 +37815,7 @@ var render = function() {
                 "data-toggle": "modal",
                 "data-target": "#likedByModal"
               },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.reload($event)
-                }
-              }
+              on: { click: _vm.reload }
             },
             [_vm._v(_vm._s(_vm.likedCount))]
           )
@@ -37873,39 +37874,43 @@ var render = function() {
             { staticClass: "modal-body" },
             _vm._l(this.users, function(user) {
               return _c("div", { key: user.id, staticClass: "row" }, [
-                _c("div", { staticClass: "col-8 offset-2" }, [
-                  _c("div", [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "d-flex align-items-center justify-content-between p-2 bg-white"
-                      },
-                      [
-                        _c("div", { staticClass: "d-flex" }, [
-                          _c("div", { staticClass: "pr-3" }, [
-                            _c("img", {
-                              staticClass: "w-100 rounded-circle",
-                              staticStyle: { "max-width": "30px" },
-                              attrs: { src: /storage/ + user.profile.image }
-                            })
-                          ]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "font-weight-bold" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "text-dark",
-                                attrs: { href: /profile/ + user.id }
-                              },
-                              [_vm._v(_vm._s(user.username))]
-                            )
+                _c(
+                  "div",
+                  { staticClass: "col-8 offset-2 align-items-center" },
+                  [
+                    _c("div", [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "d-flex align-items-center justify-content-between p-2 bg-white"
+                        },
+                        [
+                          _c("div", { staticClass: "d-flex" }, [
+                            _c("div", { staticClass: "pr-3" }, [
+                              _c("img", {
+                                staticClass: "w-100 rounded-circle",
+                                staticStyle: { "max-width": "30px" },
+                                attrs: { src: /storage/ + user.profile.image }
+                              })
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "font-weight-bold" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "text-dark",
+                                  attrs: { href: /profile/ + user.id }
+                                },
+                                [_vm._v(_vm._s(user.username))]
+                              )
+                            ])
                           ])
-                        ])
-                      ]
-                    )
-                  ])
-                ])
+                        ]
+                      )
+                    ])
+                  ]
+                )
               ])
             }),
             0
@@ -50415,8 +50420,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Documents\Fontys\Other\gekko-gram-app\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\Documents\Fontys\Other\gekko-gram-app\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Documents\Fontys\Other\gekko-gram\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\Documents\Fontys\Other\gekko-gram\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

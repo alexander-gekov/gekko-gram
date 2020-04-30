@@ -11,7 +11,7 @@
                 </div>
                 <div class="modal-body">
                     <div v-for="user in this.users" :key="user.id" class="row">
-                        <div class="col-8 offset-2">
+                        <div class="col-8 offset-2 align-items-center">
                             <div>
                                 <div
                                     class="d-flex align-items-center justify-content-between p-2 bg-white">
